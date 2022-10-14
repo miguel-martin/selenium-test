@@ -27,6 +27,10 @@ submit_button_xpath = '//*[@id="login"]/input[3]'
 # setup
 options = Options()
 options.add_argument("start-maximized")
+#options.add_argument("--disable-extensions")
+#options.add_argument("--disable-gpu")
+#options.add_argument("--no-sandbox") # linux only
+options.add_argument("--headless")
 
 try:
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
