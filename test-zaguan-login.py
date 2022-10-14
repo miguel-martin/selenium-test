@@ -15,7 +15,7 @@ zaguan_login_info_class = 'userinfo'
 
 # datos de usuario de prueba
 test_username = "512798"
-test_password = "AQUI_EL_PASS"
+test_password = "AQUI_EL_PASS_DEL_NIP"
 cadena_para_comprobar_que_login_ok = "Miguelm"
 
 # sir.unizar.es form id's
@@ -31,6 +31,9 @@ options.add_argument("start-maximized")
 #options.add_argument("--disable-gpu")
 #options.add_argument("--no-sandbox") # linux only
 options.add_argument("--headless")
+
+user_agent = 'SELENIUM!'
+options.add_argument(f'user-agent={user_agent}')
 
 try:
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
@@ -57,7 +60,9 @@ try:
     loggedin_user = driver.find_element(By.CLASS_NAME, zaguan_login_info_class).text
     assert (loggedin_user == cadena_para_comprobar_que_login_ok)
     print('Login correcto :)')
-except:
+
+except Exception as err:
+    print("ERROR: {0}".format(err))
     print('Login incorrecto :(')
 
 
