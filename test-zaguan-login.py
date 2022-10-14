@@ -27,7 +27,13 @@ submit_button_xpath = '//*[@id="login"]/input[3]'
 # setup
 options = Options()
 options.add_argument("start-maximized")
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
+try:
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+except Exception as err:
+    print("ERROR: {0}".format(err))
+    print("¿Esta instalado el binario de Chrome?")
+    quit()
 
 # run
 driver.get(url)
