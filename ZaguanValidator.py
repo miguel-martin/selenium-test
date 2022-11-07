@@ -99,22 +99,23 @@ class ZaguanValidator(ServiceValidator):
 
 
 
+if __name__ == "__main__":
 
-print("\nValidador del servicio ZAGUAN\n")
-validador = ZaguanValidator()
+    print("\nValidador del servicio ZAGUAN\n")
+    validador = ZaguanValidator()
 
-# test: buscar una cadena que solo sale estando loggeado: no debe encontrarse
-validador.run_test(False, validador.check_text, validador.HOME, 'Sus envíos')
+    # test: buscar una cadena que solo sale estando loggeado: no debe encontrarse
+    validador.run_test(False, validador.check_text, validador.HOME, 'Sus envíos')
 
-# prueba, hacer login
-validador.run_test(True, validador.login)
+    # prueba, hacer login
+    validador.run_test(True, validador.login)
 
-# prueba, buscar una cadena que solo sale estando loggeado
-validador.run_test(True, validador.check_text, validador.HOME, 'Sus envíos')
+    # prueba, buscar una cadena que solo sale estando loggeado
+    validador.run_test(True, validador.check_text, validador.HOME, 'Sus envíos')
 
-# prueba, hacer logout
-validador.run_test(True, validador.logout)
+    # prueba, hacer logout
+    validador.run_test(True, validador.logout)
 
-# test: buscar una cadena que solo sale estando loggeado: no debe encontrarse
-validador.run_test(False, validador.check_text, validador.HOME, 'Sus envíos')
+    # test: buscar una cadena que solo sale estando loggeado: no debe encontrarse
+    validador.run_test(False, validador.check_text, validador.HOME, 'Sus envíos')
 
