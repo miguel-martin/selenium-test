@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class SeleniumDriver():
 
-    MAX_WAIT_TIME=30
+    MAX_WAIT_TIME=30 # max time to wait for response
 
     def __init__(self) -> None:
         # setup
@@ -46,6 +46,10 @@ class SeleniumDriver():
 
     def get(self, value):
         return self._driver.get(value)
+
+    def page_source(self) -> str:
+        """ Returns page source """
+        return self._driver.page_source
     
-    def wait_until_class_name_is_present(self, value):
-        WebDriverWait(self._driver,self.MAX_WAIT_TIME).until(EC.presence_of_element_located((By.CLASS_NAME, value)))
+    def wait_until_class_name_is_present(self, value, max_time=MAX_WAIT_TIME):
+        WebDriverWait(self._driver,max_time).until(EC.presence_of_element_located((By.CLASS_NAME, value)))
