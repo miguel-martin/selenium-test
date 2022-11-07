@@ -27,10 +27,12 @@
 
 ## Uso
 
+  Ejemplo programación orientada a objetos (recomendado):
+
+    $ python3 ZaguanValidator.py
+    
+
   Ejemplo programacion imperativa: 
 
     $ python3 test-zaguan-login.py
 
-  Ejemplo programación orientada a objetos:
-
-    $ python3 ZaguanValidator.py
